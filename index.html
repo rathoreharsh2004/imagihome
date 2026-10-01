@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMAGI HOME — Architects • Interior Designers • Projects</title>
+<meta name="description" content="IMAGI HOME — Direct Manufacturer, Architects, Interior Designers and Projects. Bulk & Custom Orders in Surat, Gujarat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0b0b; --panel:#121212; --panel2:#171614; --cream:#eee5d4;
+  --muted:#aaa296; --gold:#d7ad63; --gold2:#f0cc85; --line:rgba(255,255,255,.11);
+  --white:#f8f6f1; --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:"DM Sans",sans-serif;line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;object-fit:cover}
+button{font:inherit}
+::selection{background:var(--gold);color:#111}
+.container{width:min(92%,var(--max));margin:auto}
+.section{padding:110px 0;position:relative}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.08}
+h2{font-size:clamp(2.3rem,5vw,4.4rem);font-weight:600}
+.section-head{max-width:760px;margin-bottom:55px}
+.section-head h2{margin:12px 0 18px}
+.section-head p{color:var(--muted);max-width:650px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border:1px solid rgba(215,173,99,.5);border-radius:999px;color:var(--white);font-size:.86rem;font-weight:700;letter-spacing:.04em;transition:.3s;position:relative;overflow:hidden}
+.btn:before{content:"";position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:.35s;z-index:-1}
+.btn:hover{color:#111;transform:translateY(-3px)}
+.btn:hover:before{transform:translateY(0)}
+.btn.gold{background:var(--gold);color:#111;border-color:var(--gold)}
+.btn.gold:before{background:var(--gold2)}
+.magnetic{will-change:transform}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:22px 0;transition:.35s;background:linear-gradient(180deg,rgba(0,0,0,.7),transparent)}
+.nav.scrolled{background:rgba(9,9,9,.88);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px}
+.brand-mark{width:42px;height:42px;border:1px solid var(--gold);display:grid;place-items:center;font-family:"Playfair Display";font-size:1.1rem;color:var(--gold);position:relative}
+.brand-mark:after{content:"";position:absolute;width:7px;height:7px;background:var(--gold);right:5px;top:5px;border-radius:50%}
+.brand-text strong{display:block;font-family:"Playfair Display";font-size:1.2rem;letter-spacing:.08em}
+.brand-text span{display:block;font-size:.58rem;color:var(--muted);letter-spacing:.2em}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:.78rem;color:#ddd;transition:.25s}
+.nav-links a:hover{color:var(--gold)}
+.menu{display:none;background:none;border:0;color:white;font-size:1.5rem}
+
+/* HERO */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity 1.1s ease,transform 7s ease}
+.hero-slide.active{opacity:1;transform:scale(1)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.82),rgba(0,0,0,.38),rgba(0,0,0,.62))}
+.hero-content{position:relative;z-index:2;padding-top:80px;max-width:900px}
+.hero-kicker{display:flex;align-items:center;gap:13px;margin-bottom:22px}
+.hero-kicker i{display:block;width:45px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(3.8rem,9vw,8.4rem);letter-spacing:-.045em}
+.hero h1 span{color:var(--gold)}
+.hero-sub{font-size:clamp(1rem,2vw,1.35rem);color:#ddd;max-width:670px;margin:28px 0 35px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{position:absolute;bottom:35px;left:4%;right:4%;display:flex;justify-content:space-between;align-items:end;z-index:3}
+.hero-count{font-size:.7rem;letter-spacing:.16em;color:#ddd}
+.hero-dots{display:flex;gap:8px}
+.hero-dots button{width:38px;height:2px;border:0;background:#777;cursor:pointer;transition:.3s}
+.hero-dots button.active{background:var(--gold);width:65px}
+
+/* INTRO */
+.intro{background:var(--cream);color:#16130f}
+.intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.intro h2{font-size:clamp(2.3rem,5vw,4.5rem)}
+.intro p{color:#625b51;margin:24px 0 30px;max-width:620px}
+.intro-image{height:600px;position:relative;overflow:hidden}
+.intro-image img{height:100%;transition:transform .8s}
+.intro-image:hover img{transform:scale(1.04)}
+.image-tag{position:absolute;bottom:22px;left:22px;background:rgba(9,9,9,.85);padding:14px 18px;border-left:2px solid var(--gold)}
+.image-tag small{display:block;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
+.image-tag strong{font-family:"Playfair Display";font-size:1.2rem}
+
+/* SERVICES */
+.services{background:#0d0d0d}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.service{background:#101010;padding:38px 28px;min-height:260px;transition:.35s}
+.service:hover{background:#181614;transform:translateY(-5px)}
+.service-num{font-size:.7rem;color:var(--gold);letter-spacing:.15em}
+.service h3{font-size:1.65rem;margin:60px 0 12px}
+.service p{font-size:.9rem;color:var(--muted)}
+
+/* PROJECTS */
+.projects{background:#101010}
+.project-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.project-card{position:relative;overflow:hidden;min-height:390px;grid-column:span 4}
+.project-card.tall{min-height:560px;grid-column:span 5}
+.project-card.wide{grid-column:span 7}
+.project-card img{height:100%;transition:transform .8s}
+.project-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.82));}
+.project-card:hover img{transform:scale(1.06)}
+.project-info{position:absolute;bottom:25px;left:25px;z-index:2}
+.project-info span{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.project-info h3{font-size:1.8rem;margin-top:6px}
+
+/* PROCESS */
+.process{background:#0a0a0a}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{border-top:1px solid var(--line);padding-top:22px}
+.step b{font-family:"Playfair Display";font-size:2.3rem;color:var(--gold);font-weight:500}
+.step h3{font-size:1.35rem;margin:18px 0 10px}
+.step p{color:var(--muted);font-size:.9rem}
+
+/* TESTIMONIAL */
+.reviews{background:#17140f}
+.review-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:stretch}
+.review-main{padding:50px;background:#211d16;border:1px solid rgba(215,173,99,.18)}
+.quote{font-family:"Playfair Display";font-size:clamp(1.8rem,3.4vw,3rem);line-height:1.25;color:#f2eadc}
+.review-person{margin-top:35px;color:var(--muted)}
+.review-side{display:grid;gap:16px}
+.review-small{padding:27px;border:1px solid rgba(255,255,255,.1);background:#12110f}
+.stars{color:var(--gold);letter-spacing:4px;margin-bottom:12px}
+
+/* FAQ */
+.faq{background:#0e0e0e}
+.faq-wrap{max-width:900px}
+.faq-item{border-top:1px solid var(--line)}
+.faq-q{width:100%;display:flex;justify-content:space-between;gap:20px;background:none;border:0;color:#fff;text-align:left;padding:25px 0;cursor:pointer;font-family:"Playfair Display";font-size:1.3rem}
+.faq-q span{font-family:"DM Sans";color:var(--gold);font-size:1.3rem}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;color:var(--muted)}
+.faq-a p{padding:0 50px 25px 0}
+.faq-item.open .faq-a{max-height:180px}
+
+/* CONTACT */
+.contact{background:var(--cream);color:#17130f}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.contact h2{margin:10px 0 20px}
+.contact-copy{color:#625b51;max-width:550px}
+.contact-details{margin-top:32px;display:grid;gap:16px}
+.detail{display:flex;gap:14px;align-items:flex-start}
+.detail-icon{width:38px;height:38px;border:1px solid #a28a65;display:grid;place-items:center}
+.detail strong{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em}
+.detail span{color:#625b51;font-size:.92rem}
+.form{background:#17130f;padding:32px;color:white}
+.form h3{font-size:2rem;margin-bottom:22px}
+.field{margin-bottom:15px}
+.field input,.field textarea,.field select{width:100%;padding:15px 16px;background:#211e19;border:1px solid #3b342a;color:white;outline:none}
+.field textarea{min-height:120px;resize:vertical}
+.form .btn{width:100%;justify-content:center}
+
+/* MAP */
+.map-section{height:440px;position:relative;overflow:hidden;background:#171717}
+.map-section iframe{width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.1) brightness(.7)}
+.map-card{position:absolute;left:5%;top:50%;transform:translateY(-50%);background:rgba(12,12,12,.93);padding:30px;max-width:360px;border-left:2px solid var(--gold);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.map-card h3{font-size:1.9rem;margin:7px 0}
+.map-card p{color:var(--muted);font-size:.88rem}
+
+/* FOOTER */
+footer{background:#070707;padding:55px 0 25px}
+.footer-top{display:flex;justify-content:space-between;gap:40px;align-items:flex-start;padding-bottom:40px;border-bottom:1px solid var(--line)}
+.footer-brand p{color:var(--muted);max-width:360px;margin-top:14px;font-size:.88rem}
+.social{display:flex;gap:10px;margin-top:18px}
+.social a{width:38px;height:38px;border:1px solid var(--line);display:grid;place-items:center;border-radius:50%;font-size:.85rem;transition:.3s}
+.social a:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+.footer-links{display:flex;gap:50px}
+.footer-links div{display:grid;gap:10px}
+.footer-links a{font-size:.82rem;color:var(--muted)}
+.footer-links a:hover{color:var(--gold)}
+.copyright{display:flex;justify-content:space-between;gap:20px;color:#68635c;font-size:.7rem;padding-top:22px}
+.credit{color:var(--gold)}
+
+/* FLOATING ACTIONS */
+.float-actions{position:fixed;right:22px;bottom:22px;z-index:999;display:grid;gap:10px}
+.float-btn{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;color:white;border:1px solid rgba(255,255,255,.18);box-shadow:0 12px 30px rgba(0,0,0,.35);font-weight:800;transition:.3s}
+.float-btn:hover{transform:scale(1.08)}
+.whatsapp{background:#1b9e58}
+.call{background:#1e73be}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:none}
+.reveal.delay1{transition-delay:.12s}.reveal.delay2{transition-delay:.22s}.reveal.delay3{transition-delay:.32s}
+.cursor{position:fixed;pointer-events:none;width:16px;height:16px;border:1px solid var(--gold);border-radius:50%;z-index:2000;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .2s,height .2s}
+@media(max-width:900px){
+ .nav-links{display:none}.menu{display:block}
+ .intro-grid,.review-grid,.contact-grid{grid-template-columns:1fr}
+ .service-grid,.process-grid{grid-template-columns:1fr 1fr}
+ .project-card,.project-card.tall,.project-card.wide{grid-column:span 6;min-height:380px}
+ .intro-image{height:470px}.footer-top{flex-direction:column}.footer-links{flex-wrap:wrap}
+}
+@media(max-width:600px){
+ .section{padding:78px 0}
+ .hero h1{font-size:4.1rem}.hero-meta{bottom:22px}
+ .service-grid,.process-grid{grid-template-columns:1fr}
+ .project-grid{display:grid;grid-template-columns:1fr}
+ .project-card,.project-card.tall,.project-card.wide{grid-column:span 1;min-height:430px}
+ .hero-actions .btn{width:100%;justify-content:center}
+ .contact-grid{gap:35px}.form{padding:24px}
+ .map-card{left:18px;right:18px;max-width:none}
+ .footer-links{gap:30px}.copyright{flex-direction:column}
+ .cursor{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="#home">
+      <div class="brand-mark">IH</div>
+      <div class="brand-text"><strong>IMAGI HOME</strong><span>DECOR YOUR WALLS</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#about">Studio</a><a href="#services">Services</a><a href="#projects">Projects</a>
+      <a href="#reviews">Reviews</a><a href="#faq">FAQ</a><a href="#contact" class="btn magnetic">Start a Project</a>
+    </div>
+    <button class="menu" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=90')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2200&q=90')"></div>
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="container hero-content reveal show">
+    <div class="hero-kicker"><i></i><span class="eyebrow">Surat • Gujarat • India</span></div>
+    <h1>Spaces with<br><span>Imagination.</span></h1>
+    <p class="hero-sub">Architects • Interior Designers • Projects — refined interiors, thoughtful architecture and custom wall solutions made for modern living.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn gold magnetic">Explore Projects ↗</a>
+      <a href="https://wa.me/918980051550?text=Hello%20Imagi%20Home%2C%20I%27d%20like%20to%20discuss%20a%20project." class="btn magnetic">WhatsApp Us</a>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <div class="hero-count" id="heroCount">01 / 03</div>
+    <div class="hero-dots"><button class="active" onclick="goSlide(0)"></button><button onclick="goSlide(1)"></button><button onclick="goSlide(2)"></button></div>
+  </div>
+</header>
+
+<section class="section intro" id="about">
+  <div class="container intro-grid">
+    <div class="reveal">
+      <div class="eyebrow">The Imagi Home Studio</div>
+      <h2>Designed to feel.<br>Built to last.</h2>
+      <p>IMAGI HOME brings architecture, interior design and wall décor together under one design language. From concept and material selection to execution, we create spaces that feel personal, balanced and distinctly yours.</p>
+      <a href="#contact" class="btn magnetic" style="color:#17130f;border-color:#9d8254">Discuss Your Space ↗</a>
+    </div>
+    <div class="intro-image reveal delay1">
+      <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=90" alt="Luxury interior by Imagi Home">
+      <div class="image-tag"><small>Design philosophy</small><strong>Warm minimalism × character</strong></div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">What we do</div><h2>One studio.<br>Many possibilities.</h2>
+      <p>End-to-end creative direction for residences, commercial spaces and custom projects.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service reveal"><span class="service-num">01 / ARCHITECTURE</span><h3>Architecture</h3><p>Context-driven planning, façade concepts and spaces shaped around light, movement and function.</p></article>
+      <article class="service reveal delay1"><span class="service-num">02 / INTERIORS</span><h3>Interior Design</h3><p>Complete interior concepts with material palettes, furniture direction, lighting and detail-led styling.</p></article>
+      <article class="service reveal delay2"><span class="service-num">03 / WALLS</span><h3>Wall Décor</h3><p>Signature wall treatments and décor solutions that turn blank surfaces into visual statements.</p></article>
+      <article class="service reveal delay3"><span class="service-num">04 / PROJECTS</span><h3>Turnkey Projects</h3><p>From drawings to delivery, coordinated execution for a smoother and more accountable journey.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section projects" id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Selected work</div><h2>Spaces that speak<br>without shouting.</h2>
+      <p>A visual collection inspired by contemporary Indian luxury, natural materials and clean architectural lines.</p>
+    </div>
+    <div class="project-grid">
+      <article class="project-card tall reveal"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90"><div class="project-info"><span>Residential</span><h3>Quiet Luxury Residence</h3></div></article>
+      <article class="project-card wide reveal delay1"><img src="https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1600&q=90"><div class="project-info"><span>Interior Architecture</span><h3>Contemporary Living</h3></div></article>
+      <article class="project-card reveal delay2"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=90"><div class="project-info"><span>Architecture</span><h3>Modern Villa</h3></div></article>
+      <article class="project-card reveal delay3"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=90"><div class="project-info"><span>Hospitality</span><h3>Material & Mood</h3></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section process">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">Our process</div><h2>From first idea<br>to final detail.</h2></div>
+    <div class="process-grid">
+      <div class="step reveal"><b>01</b><h3>Discover</h3><p>We understand your lifestyle, brief, budget and the feeling you want the space to create.</p></div>
+      <div class="step reveal delay1"><b>02</b><h3>Design</h3><p>Concepts, layouts, materials and visual direction are refined into a clear design story.</p></div>
+      <div class="step reveal delay2"><b>03</b><h3>Develop</h3><p>Details are coordinated with vendors, craftsmen and site teams for confident execution.</p></div>
+      <div class="step reveal delay3"><b>04</b><h3>Deliver</h3><p>We bring the final layers together so the finished space feels intentional down to the smallest detail.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">Client voices</div><h2>Designed around<br>real people.</h2></div>
+    <div class="review-grid">
+      <div class="review-main reveal"><div class="stars">★★★★★</div><div class="quote">“The space finally feels like us — elegant, warm and practical. The attention to materials and small details made the biggest difference.”</div><div class="review-person">— Residential Client · Surat</div></div>
+      <div class="review-side">
+        <div class="review-small reveal delay1"><div class="stars">★★★★★</div><p>“Professional from concept to execution. The visualisation made every decision easier.”</p><div class="review-person">— Interior Project</div></div>
+        <div class="review-small reveal delay2"><div class="stars">★★★★★</div><p>“Beautiful design language, responsive team and a strong sense of finish.”</p><div class="review-person">— Custom Project</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="section-head reveal"><div class="eyebrow">FAQ</div><h2>Questions, answered.</h2></div>
+    <div class="faq-wrap">
+      <div class="faq-item reveal"><button class="faq-q">Do you take complete interior projects?<span>+</span></button><div class="faq-a"><p>Yes. We can work from design consultation through material selection, vendor coordination and execution depending on the project scope.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Do you work with architects and interior designers?<span>+</span></button><div class="faq-a"><p>Yes. IMAGI HOME supports architects, interior designers, developers and project teams with custom solutions and project requirements.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Can I order in bulk or customise a requirement?<span>+</span></button><div class="faq-a"><p>Yes. The studio profile highlights bulk and custom orders. Share your requirement, quantity, dimensions and timeline for a tailored discussion.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Where are you located?<span>+</span></button><div class="faq-a"><p>IMAGI HOME is listed at 6 Ground Floor, Shyam Embross, Saniya Hemad Road, Saroli, Surat, Gujarat 395006.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">How do I start a project?<span>+</span></button><div class="faq-a"><p>Use the WhatsApp button or enquiry form below. Tell us the project type, approximate area, location and what you are looking to create.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <div class="eyebrow">Start a conversation</div>
+      <h2>Let’s create your<br>next space.</h2>
+      <p class="contact-copy">Have a residence, commercial project, custom wall requirement or collaboration in mind? Tell us a little about it and the team can take it from there.</p>
+      <div class="contact-details">
+        <div class="detail"><div class="detail-icon">⌕</div><div><strong>Studio</strong><span>6 Ground Floor, Shyam Embross, Saniya Hemad Road, Saroli, Surat, Gujarat 395006</span></div></div>
+        <div class="detail"><div class="detail-icon">☎</div><div><strong>Call / WhatsApp</strong><span>+91 89800 51550</span></div></div>
+        <div class="detail"><div class="detail-icon">◎</div><div><strong>Instagram</strong><span>@imagihome51550</span></div></div>
+      </div>
+    </div>
+    <form class="form reveal delay1" onsubmit="sendWhatsApp(event)">
+      <h3>Project enquiry</h3>
+      <div class="field"><input id="name" required placeholder="Your name"></div>
+      <div class="field"><input id="phone" required placeholder="Phone number"></div>
+      <div class="field"><select id="type"><option>Interior Design</option><option>Architecture</option><option>Turnkey Project</option><option>Wall Décor / Custom Order</option><option>Architect / Designer Collaboration</option></select></div>
+      <div class="field"><textarea id="message" placeholder="Tell us about your project..."></textarea></div>
+      <button class="btn gold magnetic" type="submit">Send Enquiry on WhatsApp ↗</button>
+    </form>
+  </div>
+</section>
+
+<section class="map-section">
+  <iframe loading="lazy" src="https://www.google.com/maps?q=Saroli%2C%20Surat%2C%20Gujarat%20395006&output=embed"></iframe>
+  <div class="map-card reveal show"><div class="eyebrow">Visit / Locate</div><h3>IMAGI HOME</h3><p>6 Ground Floor, Shyam Embross, Saniya Hemad Road, Saroli, Surat, Gujarat 395006.</p><br><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Imagi+Home+Saroli+Surat">Open in Maps ↗</a></div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand"><div class="brand-mark">IH</div><div class="brand-text"><strong>IMAGI HOME</strong><span>DECOR YOUR WALLS</span></div></div>
+        <p>Architects • Interior Designers • Projects. Direct Manufacturer. Bulk & Custom Orders.</p>
+        <div class="social"><a href="https://www.instagram.com/imagihome51550/" target="_blank" aria-label="Instagram">◎</a><a href="https://wa.me/918980051550" target="_blank" aria-label="WhatsApp">◉</a><a href="tel:+918980051550" aria-label="Call">☎</a></div>
+      </div>
+      <div class="footer-links">
+        <div><a href="#about">Studio</a><a href="#services">Services</a><a href="#projects">Projects</a></div>
+        <div><a href="#reviews">Reviews</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+      </div>
+    </div>
+    <div class="copyright"><span>© 2026 IMAGI HOME. All rights reserved.</span><span>Designed by <span class="credit">Marwar Infotech</span></span></div>
+  </div>
+</footer>
+
+<div class="float-actions">
+  <a class="float-btn call magnetic" href="tel:+918980051550" aria-label="Call Imagi Home">☎</a>
+  <a class="float-btn whatsapp magnetic" href="https://wa.me/918980051550?text=Hello%20Imagi%20Home%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" aria-label="WhatsApp Imagi Home">◉</a>
+</div>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+
+let slide=0;
+const slides=[...document.querySelectorAll('.hero-slide')];
+const dots=[...document.querySelectorAll('.hero-dots button')];
+const count=document.getElementById('heroCount');
+function goSlide(i){
+ slide=i;
+ slides.forEach((s,n)=>s.classList.toggle('active',n===i));
+ dots.forEach((d,n)=>d.classList.toggle('active',n===i));
+ count.textContent=`0${i+1} / 03`;
+}
+setInterval(()=>goSlide((slide+1)%slides.length),5500);
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+document.querySelectorAll('.faq-q').forEach(q=>{
+ q.addEventListener('click',()=>{
+   const item=q.parentElement;
+   document.querySelectorAll('.faq-item').forEach(i=>{if(i!==item)i.classList.remove('open')});
+   item.classList.toggle('open');
+   q.querySelector('span').textContent=item.classList.contains('open')?'−':'+';
+ });
+});
+
+function sendWhatsApp(e){
+ e.preventDefault();
+ const name=document.getElementById('name').value.trim();
+ const phone=document.getElementById('phone').value.trim();
+ const type=document.getElementById('type').value;
+ const message=document.getElementById('message').value.trim();
+ const text=`Hello IMAGI HOME,%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AProject: ${encodeURIComponent(type)}%0AMessage: ${encodeURIComponent(message)}`;
+ window.open(`https://wa.me/918980051550?text=${text}`,'_blank');
+}
+
+document.querySelectorAll('.magnetic').forEach(btn=>{
+ btn.addEventListener('mousemove',e=>{
+   const r=btn.getBoundingClientRect();
+   const x=(e.clientX-r.left-r.width/2)*.12, y=(e.clientY-r.top-r.height/2)*.12;
+   btn.style.transform=`translate(${x}px,${y}px)`;
+ });
+ btn.addEventListener('mouseleave',()=>btn.style.transform='');
+});
+
+const cursor=document.getElementById('cursor');
+window.addEventListener('mousemove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+
+const style=document.createElement('style');
+style.textContent='.nav-links.mobile-open{display:flex;position:absolute;top:78px;left:4%;right:4%;background:#111;padding:22px;flex-direction:column;border:1px solid #29251f}.nav-links.mobile-open .btn{justify-content:center}';
+document.head.appendChild(style);
+</script>
+</body>
+</html>
